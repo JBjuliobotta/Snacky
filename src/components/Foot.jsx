@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import snackyIcon from "../assets/snacky-icono.png";
 
-const Footer = () => {
+const Foot = () => {
     return (
         <div className="container-fluid py-4 bg-light border-top fixed-bottom">
             <div className="row justify-content-center align-items-center">
@@ -43,4 +43,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default Foot;
