@@ -1,0 +1,28 @@
+body
+{
+    background-color: #975526 !important;
+}
+
+
+.image-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  .image-container img {
+    max-width: 40%;
+    max-height: 40%; 
+  }
+
+.centered-button
+{
+    text-align:center;
+}
+
+.custom-button
+{
+    color: #d22624 !important;
+    background-color: #fef2a8 !important;
+    border-color: #d22624 !important;
+}
