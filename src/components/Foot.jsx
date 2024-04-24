@@ -3,7 +3,7 @@ import snackyIcon from "../assets/snacky-icono.png";
 
 const Footer = () => {
     return (
-        <div className="container-fluid py-4 bg-light border-top fixed-bottom">
+        <div className="container-fluid py-4 bg-light border-top sticky-bottom mt-3">
             <div className="row justify-content-center align-items-center">
                 <div className="col-12 col-md-3 mb-3 mb-md-0">
                     <Link to="/" className="d-block text-center">
