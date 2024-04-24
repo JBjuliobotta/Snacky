@@ -1,23 +1,23 @@
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import snackyIcon from "../assets/snacky-icono.png";
 
 const Footer = () => {
     return (
-        <div className="container-fluid py-4 bg-light border-top fixed-bottom">
+        <div className="container-fluid py-4 bg-light border-top sticky-bottom">
             <div className="row justify-content-center align-items-center">
                 <div className="col-12 col-md-3 mb-3 mb-md-0">
-                    <Link to="/" className="d-block text-center">
+                    <NavLink to="/" className="d-block text-center">
                         <img src={snackyIcon} alt="Snacky Icon" className="img-fluid" width="200"/>
-                    </Link>
+                    </NavLink>
                 </div>
 
                 <div className="col-12 col-md-3 mb-3 mb-md-0">
                     <h5 className="text-center">Links</h5>
                     <ul className="nav flex-column text-center">
-                        <li className="nav-item mb-2"><Link to="/" className="nav-link text-muted">Home</Link></li>
-                        <li className="nav-item mb-2"><Link to="/features"
-                                                            className="nav-link text-muted">Features</Link></li>
-                        <li className="nav-item mb-2"><Link to="/about" className="nav-link text-muted">About</Link>
+                        <li className="nav-item mb-2"><NavLink to="/" className="nav-link text-muted">Home</NavLink></li>
+                        <li className="nav-item mb-2"><NavLink to="/features"
+                                                            className="nav-link text-muted">Features</NavLink></li>
+                        <li className="nav-item mb-2"><NavLink to="/about" className="nav-link text-muted">About</NavLink>
                         </li>
                     </ul>
                 </div>

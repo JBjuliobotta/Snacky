@@ -1,0 +1,22 @@
+{
+  "productos": [
+    {
+      "id": "6ff1",
+      "title": "sdgasetgwaeg",
+      "description": "asdgawegwaeg",
+      "price": "1234124134",
+      "stock": "12312541325",
+      "image": "asdgareherherh",
+      "category": "Maní"
+    },
+    {
+      "id": "b858",
+      "title": "agharhetjrtjrt",
+      "description": "rtgwergherjhertjertjhh",
+      "price": "45235234",
+      "stock": "1234124135",
+      "image": "segerhjertjurtyaerghee",
+      "category": "Varios"
+    }
+  ]
+}
