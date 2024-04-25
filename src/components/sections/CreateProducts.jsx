@@ -22,7 +22,7 @@ const CreateProducts = () => {
       .max(200, "Máx. 200 carateres")
       .required("El título es requerido"),
     description: Yup.string()
-      .min(4, "Mín. 4 caracteres")
+      .min(10, "Mín. 10 caracteres")
       .max(200, "Máx. 200 carateres")
       .required("La descripción es requerida"),
     price: Yup.string().required("El precio es requerido"),
@@ -57,14 +57,6 @@ const CreateProducts = () => {
       }).then(async(result) => {
         if (result.isConfirmed) {
           try {
-            /*const response=await fetch(`${API}/products`,{
-              method: "POST",
-              headers:{
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${currentUser.token}`
-              },
-              body: JSON.stringify(values)
-            });*/
             const response=await axios.post(`${API}/products`, values);
             if(response.status===201){
               formik.resetForm();

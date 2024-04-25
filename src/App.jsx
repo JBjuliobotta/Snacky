@@ -8,6 +8,9 @@ import EditProduct from "./components/sections/EditProduct.jsx";
 import UserContext from "./components/context/UserContext.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Error404 from "./components/pages/Error404.jsx";
+import AboutUs from "./components/pages/AboutUs.jsx";
+import Contact from "./components/pages/Contact.jsx";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -57,6 +60,9 @@ function App() {
 
               <Route path="/create-products" element={<CreateProducts />} />
               <Route path="/edit/:id" element={<EditProduct />} />
+              <Route path="/*" element={<Error404/>}/>
+              <Route path="/about-us" element={<AboutUs/>}/>
+              <Route path="/contact" element={<Contact/>}/>
             </Routes>
           </main>
           <footer>

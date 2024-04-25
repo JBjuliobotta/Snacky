@@ -56,7 +56,7 @@ function Login({ isOpen, handleClose }) {
     <>
       <Modal show={isOpen} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Login</Modal.Title>
+          <Modal.Title>Ingresar</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={formik.handleSubmit}>
