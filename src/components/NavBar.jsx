@@ -42,7 +42,7 @@ const NavBar = () => {
         sticky="top"
       >
         <Container>
-          <Navbar.Brand href="#home">
+          <NavLink to="/">
             <img
               src="../src/assets/snacky-icono.png"
               width="50"
@@ -50,7 +50,7 @@ const NavBar = () => {
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
-          </Navbar.Brand>
+          </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
