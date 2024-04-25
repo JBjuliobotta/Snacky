@@ -21,10 +21,6 @@ const Product = ({ producto, getProducts }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          /*await fetch(`${API}/products/` + producto._id, {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-          });*/
           await axios.delete(`${API}/products/${producto._id}`);
           getProducts();
         } catch (error) {
