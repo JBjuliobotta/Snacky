@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import UserContext from "../context/UserContext";
 import Carousel from "react-bootstrap/Carousel";
-
+import grupo_jovenes from "../../assets/grupo_jovenes.png"
+import snackz from "../../assets/tablaSnacks.png"
+import saladixPu from "../../assets/saladixP.png"
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
@@ -12,28 +14,20 @@ const Home = () => {
     <>
       <Carousel>
         <Carousel.Item interval={1000}>
-            <img src={gJ} alt="" />
+            <img className="w-100" src={grupo_jovenes} alt="Jovenes comiendo snacks." />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>No podemos salvar el mundo, pero si tu fin de semana.</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={500}>
-        <img src={snacky} alt="" />
+        <img className="w-100"src={snackz} alt="Tabla de snacks" />
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Un sin fin de sabores.</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-        <img src={snacky} alt="" />
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
+        <img className="w-100"src={saladixPu} alt="Saladix publicidad" />
+       </Carousel.Item>
       </Carousel>
     </>
   );
