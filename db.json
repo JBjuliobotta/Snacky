@@ -1,22 +1,32 @@
 {
-  "productos": [
+  "comentarios": [
     {
-      "id": "6ff1",
-      "title": "sdgasetgwaeg",
-      "description": "asdgawegwaeg",
-      "price": "1234124134",
-      "stock": "12312541325",
-      "image": "asdgareherherh",
-      "category": "Maní"
+      "id": "cc7c",
+      "nombre": "Esteban Centurion  ",
+      "email": "estebansenturion_9@hotmail.com",
+      "opcionlugar": "Mendoza",
+      "comentarios": "ddddddddddddddddddddddddddddddddddddddd"
     },
     {
-      "id": "b858",
-      "title": "agharhetjrtjrt",
-      "description": "rtgwergherjhertjertjhh",
-      "price": "45235234",
-      "stock": "1234124135",
-      "image": "segerhjertjurtyaerghee",
-      "category": "Varios"
+      "id": "fdf1",
+      "nombre": "Esteban Centurion   ",
+      "email": "estebansenturion_9@hotmail.com",
+      "opcionlugar": "Tucuman",
+      "comentarios": "Hola buenas tardes, necesito saber si hacen envios por compra mayorista, gracias !"
+    },
+    {
+      "id": "cc61",
+      "nombre": "Esteban Centurion   ",
+      "email": "estebansenturion_9@hotmail.com",
+      "opcionlugar": "San Luis",
+      "comentarios": "Hola quiero que me envien cositas a mi casa "
+    },
+    {
+      "id": "fc73",
+      "nombre": "Esteban Centurion   ",
+      "email": "estebansenturion_9@hotmail.com",
+      "opcionlugar": "San Juan",
+      "comentarios": "sssssssssssssssssssssssssssssssssssssssss"
     }
   ]
 }
