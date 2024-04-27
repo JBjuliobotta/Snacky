@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import UserContext from "../context/UserContext";
 import Carousel from "react-bootstrap/Carousel";
-import gJ from "../../assets/Grupo_Jovenes.png"
+
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
