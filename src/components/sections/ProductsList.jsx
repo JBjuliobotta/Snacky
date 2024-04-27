@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import { useEffect } from "react";
 import Product from "./Product";
 import { Form } from "react-bootstrap";
 import { Col, Row } from "react-bootstrap";
-import Button from "react-bootstrap";
+//import Button from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const ProductsList = () => {

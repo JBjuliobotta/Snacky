@@ -97,7 +97,7 @@ const NavBar = () => {
               {currentUser === undefined && (
                 <Button
                   variant="primary"
-                  className="mx-2"
+                  className="mx-2 my-2 my-md-0"
                   onClick={handleShowReg}
                 >
                   Registrarse
