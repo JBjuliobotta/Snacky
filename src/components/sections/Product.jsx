@@ -21,10 +21,6 @@ const Product = ({ producto, getProducts }) => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          /*await fetch(`${API}/products/` + producto._id, {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-          });*/
           await axios.delete(`${API}/products/${producto._id}`);
           getProducts();
         } catch (error) {
@@ -50,8 +46,8 @@ const Product = ({ producto, getProducts }) => {
         <td>{producto.image}</td>
         <td>{producto.category}</td>
         <td className="d-flex justify-content-around gap-1">
-            <Button type="button" variant="warning" onClick={()=>{navigate(`/edit/${producto._id}`)}}>Editar</Button>
-            <Button type="button" variant="danger" onClick={handleDelete}>Eliminar</Button>
+            <Button className="m-2 p-3" type="button" variant="warning" onClick={()=>{navigate(`/edit/${producto._id}`)}}>Editar</Button>
+            <Button className="m-2 p-3" type="button" variant="danger" onClick={handleDelete}>Eliminar</Button>
         </td>
       </tr>
     </>
