@@ -24,10 +24,10 @@ const UsersList = () => {
   return (
     <>
       <div className="container-fluid">
-        <div className="text-center">
+        <div className="text-center text-light">
           <h3>Usuarios</h3>
         </div>
-        <Table striped bordered hover variant="dark" responsive>
+        <Table striped bordered hover variant="light" responsive>
           <thead>
             <tr>
               <th>ID</th>

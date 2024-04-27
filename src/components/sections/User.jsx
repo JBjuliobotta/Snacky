@@ -39,7 +39,7 @@ const User = ({usuario, getUsers}) => {
         <td>{usuario.password}</td>
         <td>{usuario.role}</td>
         <td className="d-flex justify-content-around gap-1">
-          <Button type="button" variant="danger" onClick={handleDelete}>
+          <Button type="button" variant="danger" className="m-2 p-2" onClick={handleDelete}>
             Eliminar
           </Button>
         </td>
