@@ -29,6 +29,11 @@ const Home = () => {
         <img className="w-100"src={saladixPu} alt="Saladix publicidad" />
        </Carousel.Item>
       </Carousel>
+
+      <Section>
+        
+      </Section>
+
     </>
   );
 };
