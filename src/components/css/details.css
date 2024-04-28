@@ -118,5 +118,10 @@
   {
     font-size: 15px;
   }
-  
+
+  .button-p
+  {
+    width: 20%;
+  }
+
 }
