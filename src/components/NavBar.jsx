@@ -96,7 +96,7 @@ const NavBar = () => {
               </Form.Group>
               {currentUser === undefined && (
                 <Button
-                  variant="primary"
+                  variant="danger"
                   className="mx-2 my-2 my-md-0"
                   onClick={handleShowReg}
                 >
@@ -104,7 +104,7 @@ const NavBar = () => {
                 </Button>
               )}
               {currentUser === undefined && (
-                <Button variant="primary" className="mx-2 my-2 my-md-0" onClick={handleShow}>
+                <Button variant="danger" className="mx-2 my-2 my-md-0" onClick={handleShow}>
                   Ingresar
                 </Button>
               )}
