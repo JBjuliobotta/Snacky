@@ -8,11 +8,12 @@ import { Button } from "react-bootstrap";
 import Login from "./sections/Login";
 import UserContext from "./context/UserContext";
 import Registration from "./sections/Registration";
+import { Form } from "react-bootstrap";
 
 const NavBar = () => {
   const { currentUser, setCurrentUser, RemoveAuth } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
-  const [showReg, setShowReg] = useState(false)
+  const [showReg, setShowReg] = useState(false);
   const handleShow = () => {
     setIsOpen(true);
   };
@@ -33,7 +34,7 @@ const NavBar = () => {
 
   return (
     <>
-      <Registration showReg={showReg} handleCloseReg={handleCloseReg}/>
+      <Registration showReg={showReg} handleCloseReg={handleCloseReg} />
       <Login isOpen={isOpen} handleClose={handleClose} />
       <Navbar
         expand="lg"
@@ -83,18 +84,32 @@ const NavBar = () => {
               )}
             </Nav>
             <Nav>
-            {currentUser === undefined && (
-                <Button variant="primary" className="mx-2" onClick={handleShowReg}>
+              <Form.Group
+                className="mb-3 d-block d-sm-block d-md-block d-lg-none"
+                controlId="busqueda"
+              >
+                <Form.Control
+                  type="text"
+                  placeholder="Búsqueda"
+                  name="description"
+                />
+              </Form.Group>
+              {currentUser === undefined && (
+                <Button
+                  variant="danger"
+                  className="mx-2 my-2 my-md-0"
+                  onClick={handleShowReg}
+                >
                   Registrarse
                 </Button>
               )}
               {currentUser === undefined && (
-                <Button variant="primary" className="mx-2" onClick={handleShow}>
+                <Button variant="danger" className="mx-2 my-2 my-md-0" onClick={handleShow}>
                   Ingresar
                 </Button>
               )}
               {currentUser !== undefined && (
-                <Button variant="secondary" className="mx-2" onClick={Logout}>
+                <Button variant="secondary" className="mx-2 my-2 my-md-0" onClick={Logout}>
                   Salir
                 </Button>
               )}

@@ -1,21 +1,24 @@
 import React, { useState } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import { useEffect } from "react";
 import Product from "./Product";
 import { Form } from "react-bootstrap";
 import { Col, Row } from "react-bootstrap";
+//import Button from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const ProductsList = () => {
+  const navigate = useNavigate();
   const [productos, setProductos] = useState([]);
-  const[productFilter, setproductFilter]=useState("");
+  const [productFilter, setproductFilter] = useState("");
   const API = import.meta.env.VITE_API;
 
   const getProducts = async () => {
     try {
-      let URL=`${API}/products`;
-      if (productFilter!==""){
-        URL=`${API}/products?filter=${productFilter}`
-      }/*else {
+      let URL = `${API}/products`;
+      if (productFilter !== "") {
+        URL = `${API}/products?filter=${productFilter}`;
+      } /*else {
         URL=`${API}/products`
       }*/
       const response = await fetch(URL);
@@ -34,28 +37,28 @@ const ProductsList = () => {
     };
   }, []);*/
 
-  useEffect(()=>{
+  useEffect(() => {
     getProducts();
-  }, [productFilter])
+  }, [productFilter]);
 
   console.log("filtro", productFilter);
 
   return (
     <>
       <div className="container-fluid">
-        <div className="text-center">
+        <div className="text-center text-light">
           <h1>Listado de Productos</h1>
         </div>
         <div className="container-fluid">
           <Row>
             <Col xs={12} md={6}>
               <Form>
-                <Form.Group className="mb-3" controlId="category">
+                <Form.Group className="mb-3 text-light" controlId="category">
                   <Form.Label>Filtrar por Categoría</Form.Label>
                   <Form.Select
                     aria-label="category"
                     name="category"
-                    onChange={(e)=>{
+                    onChange={(e) => {
                       setproductFilter(e.currentTarget.value);
                     }}
                   >
@@ -68,6 +71,18 @@ const ProductsList = () => {
                   </Form.Select>
                 </Form.Group>
               </Form>
+            </Col>
+            <Col xs={12} md={6}>
+              <div className="contaner m-3 py-3">
+                <Button
+                  variant="secondary"
+                  onClick={() => {
+                    navigate("/create-products");
+                  }}
+                >
+                  Crear Producto
+                </Button>
+              </div>
             </Col>
           </Row>
         </div>

@@ -11,6 +11,7 @@ import axios from "axios";
 import Error404 from "./components/pages/Error404.jsx";
 import AboutUs from "./components/pages/AboutUs.jsx";
 import Contact from "./components/pages/Contact.jsx";
+import ProductDetail from "./components/pages/ProductDetail.jsx";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -51,7 +52,7 @@ function App() {
             <NavBar />
           </header>
           <main>
-            <Routes>
+            {/*<Routes>
               <Route path="/" element={<Home />} />
 
               {currentUser !== undefined && currentUser.role === "Admin" && (
@@ -63,7 +64,8 @@ function App() {
               <Route path="/*" element={<Error404/>}/>
               <Route path="/about-us" element={<AboutUs/>}/>
               <Route path="/contact" element={<Contact/>}/>
-            </Routes>
+            </Routes>*/}
+            <ProductDetail/>
           </main>
           <footer>
             <Foot />

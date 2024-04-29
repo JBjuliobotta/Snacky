@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import UserContext from "../context/UserContext";
+import Swal from "sweetalert2";
 
 function Login({ isOpen, handleClose }) {
 
@@ -46,7 +47,11 @@ function Login({ isOpen, handleClose }) {
             alert("Ocurrió un error")
         }
       } catch (error) {
-        alert(`${error.response.data.message}`)
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "El usuario y/o contraseña son incorrectos"
+        });
         console.log(error);
       }
     },
