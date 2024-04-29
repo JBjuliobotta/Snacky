@@ -52,7 +52,7 @@ function App() {
             <NavBar />
           </header>
           <main>
-            {/*<Routes>
+            <Routes>
               <Route path="/" element={<Home />} />
 
               {currentUser !== undefined && currentUser.role === "Admin" && (
@@ -64,7 +64,7 @@ function App() {
               <Route path="/*" element={<Error404/>}/>
               <Route path="/about-us" element={<AboutUs/>}/>
               <Route path="/contact" element={<Contact/>}/>
-            </Routes>*/}
+            </Routes>
             <ProductDetail/>
           </main>
           <footer>
