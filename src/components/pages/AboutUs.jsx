@@ -14,7 +14,7 @@ const Aboutus = () => {
             <div className="card">
 
                 <div className="imbBx">
-                    <img src="src/assets/Esteban Centurión.jpeg" alt=""/>
+                    <img src="src/assets/Esteban Centurión.png" alt=""/>
                 </div>
 
                 <div className="content">
@@ -40,7 +40,7 @@ const Aboutus = () => {
             <div className="card">
 
 <div className="imbBx">
-    <img src="src/assets/Julio.jpeg" alt=""/>
+    <img src="src/assets/Julio.png" alt=""/>
 </div>
 
 <div className="content">
@@ -66,7 +66,7 @@ const Aboutus = () => {
             <div className="card">
 
                 <div className="imbBx">
-                    <img src="src/assets/Axel Yoel Ontiveros.jpg" alt=""/>
+                    <img src="src/assets/Axel Yoel Ontiveros.png" alt=""/>
                 </div>
 
                 <div className="content">
@@ -92,7 +92,7 @@ const Aboutus = () => {
             <div className="card">
 
                 <div className="imbBx">
-                    <img src="src/assets/Facundo Moyano.jpeg" alt=""/>
+                    <img src="src/assets/Facundo Moyano.png" alt=""/>
                 </div>
 
                 <div className="content">
@@ -117,7 +117,7 @@ const Aboutus = () => {
             <div className="card">
 
         <div className="imbBx">
-            <img src="src/assets/Fernando Abregu.jpeg" alt=""/>
+            <img src="src/assets/Fernando Abregu.png" alt=""/>
         </div>
 
         <div className="content">
@@ -142,7 +142,7 @@ const Aboutus = () => {
 <div className="card">
 
 <div className="imbBx">
-    <img src="src/assets/Jose Maximiliano Leal.jpeg" alt=""/>
+    <img src="src/assets/Jose Maximiliano Leal.png" alt=""/>
 </div>
 
 <div className="content">
