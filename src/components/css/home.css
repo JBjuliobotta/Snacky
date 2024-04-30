@@ -1,0 +1,46 @@
+.cards-container
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.card-m
+{
+    margin-top: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) 
+{
+    .cards-container
+    {
+        grid-template-columns: auto auto auto;
+    }
+
+    .card-m:nth-child(n+13) {
+        display: none;
+    }
+
+}
+    
+
+
+
+
+
+    @media (max-width: 768px) 
+    {
+        .cards-container
+        {
+            margin-top: 1px;
+            margin-left: 1px;
+            grid-template-columns: auto auto;
+        }
+        
+        .card-m:nth-child(n+11) {
+            display: none;
+        }
+    
+    }

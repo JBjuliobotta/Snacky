@@ -1,0 +1,32 @@
+{
+  "comentarios": [
+    {
+      "id": "cc7c",
+      "nombre": "Esteban Centurion  ",
+      "email": "estebansenturion_9@hotmail.com",
+      "opcionlugar": "Mendoza",
+      "comentarios": "ddddddddddddddddddddddddddddddddddddddd"
+    },
+    {
+      "id": "fdf1",
+      "nombre": "Esteban Centurion   ",
+      "email": "estebansenturion_9@hotmail.com",
+      "opcionlugar": "Tucuman",
+      "comentarios": "Hola buenas tardes, necesito saber si hacen envios por compra mayorista, gracias !"
+    },
+    {
+      "id": "cc61",
+      "nombre": "Esteban Centurion   ",
+      "email": "estebansenturion_9@hotmail.com",
+      "opcionlugar": "San Luis",
+      "comentarios": "Hola quiero que me envien cositas a mi casa "
+    },
+    {
+      "id": "fc73",
+      "nombre": "Esteban Centurion   ",
+      "email": "estebansenturion_9@hotmail.com",
+      "opcionlugar": "San Juan",
+      "comentarios": "sssssssssssssssssssssssssssssssssssssssss"
+    }
+  ]
+}
