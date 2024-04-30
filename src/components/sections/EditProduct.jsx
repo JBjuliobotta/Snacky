@@ -79,13 +79,6 @@ const EditProduct = () => {
               image: values.image,
               category: values.category
             };
-            /*const response = await fetch(`${API}/productos/${id}`, {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(values),
-            });*/
             const response=await axios.put(`${API}/products/update`, updateProduct);
             if (response.status === 200) {
               Swal.fire({

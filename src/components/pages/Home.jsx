@@ -1,23 +1,39 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../context/UserContext";
 import Carousel from "react-bootstrap/Carousel";
-import grupo_jovenes from "../../assets/grupo_jovenes.png";
+import grupo_jovenes from "C:/Users/julio/Documents/Proyecto Final Rolling/Snacky/src/assets/Grupo_Jovenes.png";
 import snackz from "../../assets/tablaSnacks.png";
 import saladixPu from "../../assets/saladixP.png";
-import "../css/home.css";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+//import "../css/home.css";
+//import Button from "react-bootstrap/Button";
+//import Card from "react-bootstrap/Card";
+import CardProduct from "../sections/CardProduct";
+import axios from "axios";
+import { Container, Row } from "react-bootstrap";
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
+  const [productos, setProductos] = useState([]);
+  const API = import.meta.env.VITE_API;
+  const getProducts = async () => {
+    try {
+      const response = await axios.get(`${API}/products`);
+      setProductos(response.data);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
 
-  const [favoritos, setFavoritos] = useState(Array(15).fill(false));
+  useEffect(() => {
+    getProducts();
+  }, []);
+  /*const [favoritos, setFavoritos] = useState(Array(15).fill(false));
 
   const handleFavoritoClick = (index) => {
     const newFavoritos = [...favoritos];
     newFavoritos[index] = !newFavoritos[index];
     setFavoritos(newFavoritos);
-  };
+  };*/
 
   console.log("currentuser", currentUser);
 
@@ -45,7 +61,7 @@ const Home = () => {
         </Carousel.Item>
       </Carousel>
 
-      <div className="cards-container">
+      {/*<div className="cards-container">
         {favoritos.map((isFavorite, index) => (
           <Card className="card-m" style={{ width: "12rem" }} key={index}>
             <Button
@@ -91,7 +107,19 @@ const Home = () => {
             </Card.Body>
           </Card>
         ))}
-      </div>
+      </div>*/}
+      <Container className="text-center">
+        <Row>
+          {productos.map((element) => {
+            return (
+              <CardProduct
+                producto={element}
+                key={element._id}
+              />
+            );
+          })}
+        </Row>
+      </Container>
     </>
   );
 };
