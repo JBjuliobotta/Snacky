@@ -4,6 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 import grupo_jovenes from "C:/Users/julio/Documents/Proyecto Final Rolling/Snacky/src/assets/Grupo_Jovenes.png";
 import snackz from "../../assets/tablaSnacks.png";
 import saladixPu from "../../assets/saladixP.png";
+import rollingcodepublicidad from "../../assets/rollingcodepublicidad.png"
 //import "../css/home.css";
 //import Button from "react-bootstrap/Button";
 //import Card from "react-bootstrap/Card";
@@ -119,6 +120,9 @@ const Home = () => {
             );
           })}
         </Row>
+      </Container>
+      <Container className="container-fluid d-none d-sm-none d-md-block d-lg-block d-xl-block bg-light my-2">
+          <img src={rollingcodepublicidad} alt="publicidad" />
       </Container>
     </>
   );
