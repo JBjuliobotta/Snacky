@@ -2,11 +2,12 @@ import "../css/details.css";
 //import snack from "../../assets/snack_image.png";
 import { Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const ProductDetail = () => {
-  const [producto, setProducto] = useState(undefined);
+  const navigate=useNavigate();
+  const [producto, setProducto] = useState([]);
   const { id } = useParams();
   const API = import.meta.env.VITE_API;
 
@@ -22,20 +23,22 @@ const ProductDetail = () => {
     getProduct();
   }, []);
 
+  
+
   return (
     <>
       <section>
         <div className="container-g flex">
           <div className="izquierda">
             <div className="imagen_principal">
-              <img alt="Papas Fritas Pringles" />
+              <img src={producto.image} alt="papas" />
             </div>
           </div>
           <div className="derecha">
-            <h1 className="title"></h1>
-            <p></p>
-            <p></p>
-            <Button className="button-p">
+            <h1 className="title">{producto.title}</h1>
+            <p>{producto.price}</p>
+            <p>{producto.description}</p>
+            <Button className="button-p" onClick={()=>{navigate(`/*`)}}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
