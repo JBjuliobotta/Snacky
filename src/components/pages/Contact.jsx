@@ -70,11 +70,11 @@ const Contact = () => {
   });
     return (
         <div className="container py-3 my-3 ">
-          <div className="text-center"><h2>Contactanos</h2></div>
+          <div className="text-center text-light fw-bolder"><h2>Contactanos</h2></div>
           
             <Form onSubmit={formik.handleSubmit}>
       <Form.Group className="mb-3" controlId="nombre">
-        <Form.Label>Nombre y Apellido </Form.Label>
+        <Form.Label className="text-light fw-bolder">Nombre y Apellido </Form.Label>
         <Form.Control type="text" placeholder="Max Power" minLength={4} maxLength={20} name="nombre" {...formik.getFieldProps("nombre")}
         className={clsx(
           "form-control",
@@ -92,7 +92,7 @@ const Contact = () => {
           )}
       </Form.Group>
       <Form.Group className="mb-3" controlId="email">
-        <Form.Label>Email </Form.Label> 
+        <Form.Label className="text-light fw-bolder">Email </Form.Label> 
         <Form.Control type="email" placeholder="email@ejemplo.com" minLength={15} maxLength={40} name="email" {...formik.getFieldProps("email")} 
         className={clsx(
           "form-control",
@@ -109,7 +109,7 @@ const Contact = () => {
             </div>
           )}
       </Form.Group>
-          <FormLabel>De donde nos escribis</FormLabel>
+          <FormLabel className="text-light fw-bolder">De donde nos escribís</FormLabel>
       <FormGroup><Form.Select aria-label="opcionlugar"
        name="opcionlugar"
        {...formik.getFieldProps("opcionlugar")}
@@ -122,7 +122,7 @@ const Contact = () => {
            "is-valid": formik.touched.opcionlugar && !formik.errors.opcionlugar,
          }
        )}>
-      <option className="mb-3" >Eleji una opcion</option>
+      <option className="mb-3" >Elegí una opcion</option>
       <option value="Buenos Aires">Buenos Aires</option>
                                 <option value="Capital Federal">Capital Federal</option>
                                 <option value="Catamarca">Catamarca</option>
@@ -155,7 +155,7 @@ const Contact = () => {
           )}
      </FormGroup>
       <Form.Group className="my-3" controlId="comentarios">
-        <Form.Label>Deja tus comentarios</Form.Label>
+        <Form.Label className="text-light fw-bolder">Dejanos tus comentarios</Form.Label>
         <Form.Control as="textarea" rows={3} min={15} maxLength={200}
          name="comentarios"
          {...formik.getFieldProps("comentarios")}

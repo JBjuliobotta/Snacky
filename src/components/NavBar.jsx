@@ -65,8 +65,6 @@ const NavBar = () => {
                 Contacto
               </NavLink>
               <NavDropdown title="Categorías" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.2">Papas</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.3">Nachos</NavDropdown.Item>
@@ -97,19 +95,19 @@ const NavBar = () => {
               {currentUser === undefined && (
                 <Button
                   variant="danger"
-                  className="mx-2 my-2 my-md-0"
+                  className="mx-2 my-2 "
                   onClick={handleShowReg}
                 >
                   Registrarse
                 </Button>
               )}
               {currentUser === undefined && (
-                <Button variant="danger" className="mx-2 my-2 my-md-0" onClick={handleShow}>
+                <Button variant="danger" className="mx-2 my-2 " onClick={handleShow}>
                   Ingresar
                 </Button>
               )}
               {currentUser !== undefined && (
-                <Button variant="secondary" className="mx-2 my-2 my-md-0" onClick={Logout}>
+                <Button variant="secondary" className="mx-2 my-2 " onClick={Logout}>
                   Salir
                 </Button>
               )}

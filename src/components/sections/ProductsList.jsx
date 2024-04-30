@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import Product from "./Product";
 import { Form } from "react-bootstrap";
 import { Col, Row } from "react-bootstrap";
-//import Button from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const ProductsList = () => {
@@ -18,9 +17,7 @@ const ProductsList = () => {
       let URL = `${API}/products`;
       if (productFilter !== "") {
         URL = `${API}/products?filter=${productFilter}`;
-      } /*else {
-        URL=`${API}/products`
-      }*/
+      } 
       const response = await fetch(URL);
       const resJson = await response.json();
       setProductos(resJson);
@@ -29,13 +26,6 @@ const ProductsList = () => {
     }
   };
 
-  /*useEffect(() => {
-    getProducts();
-
-    return () => {
-      setProductos([]);
-    };
-  }, []);*/
 
   useEffect(() => {
     getProducts();
@@ -86,7 +76,7 @@ const ProductsList = () => {
             </Col>
           </Row>
         </div>
-        <Table striped bordered hover variant="dark" responsive>
+        <Table striped bordered hover variant="light" responsive>
           <thead>
             <tr>
               <th>ID</th>
