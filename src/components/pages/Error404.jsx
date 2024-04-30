@@ -8,7 +8,7 @@ const Error404 = () => {
   return (
     <div>
       <div className="centered-button">
-        <Button className="custom-button" onClick={()=>{navigate("/")}}>Volver al Inicio</Button>
+        <Button className="custom-button my-3" onClick={()=>{navigate("/")}}>Volver al Inicio</Button>
       </div>
 
       <div className="image-container">

@@ -269,7 +269,7 @@ const EditProduct = () => {
               </div>
             )}
           </Form.Group>
-          <Button variant="primary" type="submit" className="mb-3">
+          <Button variant="danger" type="submit" className="mb-3">
             Guardar
           </Button>
         </Form>
