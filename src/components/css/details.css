@@ -9,7 +9,7 @@
     max-width: 99%;
     margin: auto;
     margin-bottom: 30px;
-    height: 68vh;
+    height: 80vh;
     margin-top: 5%;
     background: white;
     box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.3);
@@ -36,10 +36,10 @@
     display: flex;
   }
   
-  .imagen_principal {
+  /*.imagen_principal {
     width: auto;
     height: auto;
-  }
+  }*/
   
   .derecha {
     padding: 50px 100px 50px 50px;

@@ -66,7 +66,7 @@ function Login({ isOpen, handleClose }) {
         <Modal.Body>
           <Form onSubmit={formik.handleSubmit}>
             <Form.Group className="mb-3" controlId="email">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Ingresar email"
@@ -114,7 +114,7 @@ function Login({ isOpen, handleClose }) {
               >
                 Cerrar
               </Button>
-              <Button type="submit" variant="primary" className="mx-2" >
+              <Button type="submit" variant="danger" className="mx-2" >
                 Ingresar
               </Button>
             </div>

@@ -177,7 +177,7 @@ const Contact = () => {
          </div>
        )}
         
-        <Button variant="primary my-3" type="submit">
+        <Button variant="warning my-3" type="submit">
         Enviar
       </Button>
       </Form.Group>
@@ -185,7 +185,7 @@ const Contact = () => {
        <div className="col " >
        <Iframe className="border border-4 mt-4 mt-lg-0 shadow"
        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.1023709809397!2d-65.20977672546015!3d-26.836696090030177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d3ad7f30f1d%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1697732042076!5m2!1ses-419!2sar"
-       width="100%" height="515" style="border:0;" allowfullscreen="" loading="lazy"
+       width="100%" height="315" style="border:0;" allowfullscreen="" loading="lazy"
        class="w-100">
 
 </Iframe>  

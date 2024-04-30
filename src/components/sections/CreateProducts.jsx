@@ -6,12 +6,10 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
-//import UserContext from "../context/UserContext";
 import axios from "axios";
 
 const CreateProducts = () => {
 
-  //const {currentUser}=useContext(UserContext);
 
   const API=import.meta.env.VITE_API;
   const navigate=useNavigate();
@@ -209,7 +207,7 @@ const CreateProducts = () => {
                 </div>
             )}
           </Form.Group>
-          <Button variant="primary" type="submit" className="mb-3">
+          <Button variant="danger" type="submit" className="mb-3">
             Guardar
           </Button>
         </Form>
