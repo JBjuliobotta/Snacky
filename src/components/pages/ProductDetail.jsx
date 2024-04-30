@@ -30,7 +30,7 @@ const ProductDetail = () => {
       <section>
         <div className="container-g flex">
           <div className="izquierda">
-            <div className="imagen_principal">
+            <div className="img-fluid">
               <img src={producto.image} alt="papas" />
             </div>
           </div>

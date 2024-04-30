@@ -107,7 +107,7 @@ const Home = () => {
             </Form>
           </Col>
         </Row>
-        <Row>
+        <Row className="justify-content-evenly">
           {productos.map((element) => {
             return <CardProduct producto={element} key={element._id} />;
           })}
