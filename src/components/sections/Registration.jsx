@@ -7,10 +7,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import Swal from "sweetalert2";
-//import UserContext from "../context/UserContext";
 
 const Registration = ({ showReg, handleCloseReg }) => {
- // const { setCurrentUser, SaveAuth } = useContext(UserContext);
 
   const API = import.meta.env.VITE_API;
 
@@ -60,7 +58,12 @@ const Registration = ({ showReg, handleCloseReg }) => {
               });
             }
           } catch (error) {
-            console.log("ERROR--", error);
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Ocurrió un error, intenta de nuevo"
+            });
+            console.log(error);
           }
 
         }
@@ -100,7 +103,7 @@ const Registration = ({ showReg, handleCloseReg }) => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="email">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Ingresar email"
@@ -181,7 +184,7 @@ const Registration = ({ showReg, handleCloseReg }) => {
               >
                 Cerrar
               </Button>
-              <Button type="submit" variant="primary" className="mx-2">
+              <Button type="submit" variant="danger" className="mx-2">
                 Registrarse
               </Button>
             </div>

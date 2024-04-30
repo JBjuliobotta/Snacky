@@ -45,6 +45,8 @@ const Product = ({ producto, getProducts }) => {
         <td>{producto.stock}</td>
         <td>{producto.image}</td>
         <td>{producto.category}</td>
+        <td>{producto.createdAt}</td>
+        <td>{producto.updatedAt}</td>
         <td className="d-flex justify-content-around gap-1">
             <Button className="m-2 p-3" type="button" variant="warning" onClick={()=>{navigate(`/edit/${producto._id}`)}}>Editar</Button>
             <Button className="m-2 p-3" type="button" variant="danger" onClick={handleDelete}>Eliminar</Button>

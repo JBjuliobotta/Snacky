@@ -86,6 +86,8 @@ const ProductsList = () => {
               <th>Stock</th>
               <th>Imágen</th>
               <th>Categoría</th>
+              <th>Creado</th>
+              <th>Actualizado</th>
               <th>Acciones</th>
             </tr>
           </thead>
