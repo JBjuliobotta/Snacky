@@ -177,7 +177,7 @@ const Contact = () => {
          </div>
        )}
         
-        <Button variant="primary my-3" type="submit">
+        <Button variant="warning my-3" type="submit">
         Enviar
       </Button>
       </Form.Group>

@@ -2,13 +2,12 @@ import React, { useContext, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Login from "./sections/Login";
 import UserContext from "./context/UserContext";
 import Registration from "./sections/Registration";
-import { Form } from "react-bootstrap";
+
 
 const NavBar = () => {
   const { currentUser, setCurrentUser, RemoveAuth } = useContext(UserContext);
@@ -64,17 +63,6 @@ const NavBar = () => {
               <NavLink to="/contact" className={"nav-link"}>
                 Contacto
               </NavLink>
-              <NavDropdown title="Categorías" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.2">Papas</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.3">Nachos</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Cheetos</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Maní</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Varios</NavDropdown.Item>
-              </NavDropdown>
               {currentUser !== undefined && currentUser.role === "Admin" && (
                 <NavLink to="/administration" className={"nav-link"}>
                   Administración
@@ -82,16 +70,6 @@ const NavBar = () => {
               )}
             </Nav>
             <Nav>
-              <Form.Group
-                className="mb-3 d-block d-sm-block d-md-block d-lg-none"
-                controlId="busqueda"
-              >
-                <Form.Control
-                  type="text"
-                  placeholder="Búsqueda"
-                  name="description"
-                />
-              </Form.Group>
               {currentUser === undefined && (
                 <Button
                   variant="danger"
@@ -107,7 +85,7 @@ const NavBar = () => {
                 </Button>
               )}
               {currentUser !== undefined && (
-                <Button variant="secondary" className="mx-2 my-2 " onClick={Logout}>
+                <Button variant="warning" className="mx-2 my-2 " onClick={Logout}>
                   Salir
                 </Button>
               )}

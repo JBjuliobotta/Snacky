@@ -14,7 +14,7 @@ const CardProduct = ({ producto }) => {
             <Card.Body>
               <Card.Title>{producto.title}</Card.Title>
               <Card.Text>{producto.price}</Card.Text>
-              <Button variant="primary" onClick={()=>{navigate(`/productdetail/${producto._id}`)}}>Ver más</Button>
+              <Button variant="danger" onClick={()=>{navigate(`/productdetail/${producto._id}`)}}>Ver más</Button>
             </Card.Body>
           </Card>
         </div>

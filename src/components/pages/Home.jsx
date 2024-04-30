@@ -1,40 +1,47 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../context/UserContext";
 import Carousel from "react-bootstrap/Carousel";
-import grupo_jovenes from "C:/Users/esteb/Desktop/Proyecto final/Snacky/src/assets/grupo_jovenes.png";
+import grupo_jovenes from "C:/Users/julio/Documents/Proyecto Final Rolling/Snacky/src/assets/Grupo_Jovenes.png";
 import snackz from "../../assets/tablaSnacks.png";
 import saladixPu from "../../assets/saladixP.png";
 import rollingcodepublicidad from "../../assets/rollingcodepublicidad.png"
-// //import "../css/home.css";
-// //import Button from "react-bootstrap/Button";
+//import "../css/home.css";
+//import Button from "react-bootstrap/Button";
 //import Card from "react-bootstrap/Card";
 import CardProduct from "../sections/CardProduct";
 import axios from "axios";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
   const [productos, setProductos] = useState([]);
+  const [productFilter, setproductFilter] = useState("");
+  const [searchTitle, SetSearchTitle] = useState("");
   const API = import.meta.env.VITE_API;
   const getProducts = async () => {
     try {
-      const response = await axios.get(`${API}/products`);
-      setProductos(response.data);
+      let URL = `${API}/products`;
+      if (productFilter !== "" && searchTitle==="") {
+        URL = `${API}/products?filter=${productFilter}`;
+      } else if (productFilter !== "" && searchTitle!=="") {
+        URL = `${API}/products?filter=${productFilter}&search=${searchTitle}`;
+      } else if (productFilter === "" && searchTitle!=="") {
+        URL = `${API}/products?search=${searchTitle}`;
+      }
+      const response = await fetch(URL);
+      const resJson = await response.json();
+      setProductos(resJson);
     } catch (error) {
-      console.log("error", error);
+      console.log(error);
     }
   };
 
   useEffect(() => {
     getProducts();
-  }, []);
-  /*const [favoritos, setFavoritos] = useState(Array(15).fill(false));
+  }, [productFilter, searchTitle]);
 
-  const handleFavoritoClick = (index) => {
-    const newFavoritos = [...favoritos];
-    newFavoritos[index] = !newFavoritos[index];
-    setFavoritos(newFavoritos);
-  };*/
+  console.log("filtro", productFilter);
+
 
   console.log("currentuser", currentUser);
 
@@ -62,67 +69,52 @@ const Home = () => {
         </Carousel.Item>
       </Carousel>
 
-      {/*<div className="cards-container">
-        {favoritos.map((isFavorite, index) => (
-          <Card className="card-m" style={{ width: "12rem" }} key={index}>
-            <Button
-              variant="light"
-              style={{ position: "absolute", top: 0, right: 0 }}
-              onClick={() => handleFavoritoClick(index)}
-            >
-              {isFavorite ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="red"
-                  className="bi bi-heart-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-heart"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-                </svg>
-              )}
-            </Button>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        ))}
-      </div>*/}
+
       <Container className="text-center">
+        <h1 className="text-light fw-bolder my-3">Destacados</h1>
+        <Row>
+          <Col xs={12} md={6}>
+            <Form>
+              <Form.Group className="mb-3 text-light" controlId="category">
+                <Form.Label>Categorías</Form.Label>
+                <Form.Select
+                  aria-label="category"
+                  name="category"
+                  onChange={(e) => {
+                    setproductFilter(e.currentTarget.value);
+                  }}
+                >
+                  <option value="">Todas</option>
+                  <option value="Papas">Papas</option>
+                  <option value="Maní">Maní</option>
+                  <option value="Nachos">Nachos</option>
+                  <option value="Cheetos">Cheetos</option>
+                  <option value="Varios">Varios</option>
+                </Form.Select>
+              </Form.Group>
+            </Form>
+          </Col>
+          <Col xs={12} md={6}>
+            <Form onSubmit={(e)=>{
+              e.preventDefault();
+            }}>
+              <Form.Group className="mb-3 text-light" controlId="search">
+                <Form.Label>Búsqueda por Título</Form.Label>
+                <Form.Control type="text" placeholder="Búsqueda" name="title" onChange={(e)=>{
+                  SetSearchTitle(e.currentTarget.value);
+                }} />
+              </Form.Group>
+            </Form>
+          </Col>
+        </Row>
         <Row>
           {productos.map((element) => {
-            return (
-              <CardProduct
-                producto={element}
-                key={element._id}
-              />
-            );
+            return <CardProduct producto={element} key={element._id} />;
           })}
         </Row>
       </Container>
       <Container className="container-fluid d-none d-sm-none d-md-block d-lg-block d-xl-block bg-light my-2">
-          <img src={rollingcodepublicidad} alt="publicidad" />
+        <img src={rollingcodepublicidad} alt="publicidad" />
       </Container>
     </>
   );
