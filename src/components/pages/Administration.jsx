@@ -5,10 +5,10 @@ import UsersList from '../sections/UsersList';
 const Administration = () => {
     return (
         <>
-        <div className='container m-3 py-3'>
+        <div className='m-3 py-3 d-flex justify-content-center'>
         <UsersList/>
         </div>
-        <div className='container m-3 py-3'>
+        <div className='m-3 py-3 d-flex justify-content-center'>
         <ProductsList/>
         </div>
         </>

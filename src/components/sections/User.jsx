@@ -36,7 +36,6 @@ const User = ({usuario, getUsers}) => {
         <td>{usuario._id}</td>
         <td>{usuario.name}</td>
         <td>{usuario.email}</td>
-        <td>{usuario.password}</td>
         <td>{usuario.role}</td>
         <td className="d-flex justify-content-around gap-1">
           <Button type="button" variant="danger" className="m-2 p-2" onClick={handleDelete}>

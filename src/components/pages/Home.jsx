@@ -1,15 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../context/UserContext";
 import Carousel from "react-bootstrap/Carousel";
-import grupo_jovenes from "C:/Users/julio/Documents/Proyecto Final Rolling/Snacky/src/assets/Grupo_Jovenes.png";
+import grupo_jovenes from "C:/Users/julio/Documents/Proyecto Final Rolling/Snacky/src/assets/grupo_jovenes.png";
 import snackz from "../../assets/tablaSnacks.png";
 import saladixPu from "../../assets/saladixP.png";
 import rollingcodepublicidad from "../../assets/rollingcodepublicidad.png"
-//import "../css/home.css";
-//import Button from "react-bootstrap/Button";
-//import Card from "react-bootstrap/Card";
 import CardProduct from "../sections/CardProduct";
-import axios from "axios";
 import { Container, Row, Col, Form } from "react-bootstrap";
 
 const Home = () => {
@@ -38,12 +34,11 @@ const Home = () => {
 
   useEffect(() => {
     getProducts();
+    currentUser
   }, [productFilter, searchTitle]);
 
-  console.log("filtro", productFilter);
 
 
-  console.log("currentuser", currentUser);
 
   return (
     <>

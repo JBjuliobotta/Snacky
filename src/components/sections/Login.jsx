@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
@@ -21,7 +21,7 @@ function Login({ isOpen, handleClose }) {
       .min(7)
       .max(50)
       .required("El email es requerido"),
-    password: Yup.string().min(6).max(50).required("El password es requerido"),
+    password: Yup.string().min(8, "Debe tener mínimo 8 caracteres").max(16, "Debe tener máximo 16 caracteres").required("El password es requerido").matches(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/, "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico"),
   });
 
   const initialValues = {
@@ -35,7 +35,15 @@ function Login({ isOpen, handleClose }) {
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: async(values) => {
-      console.log("VALUES", values);
+      Swal.fire({
+        title: "Iniciando sesión....",
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        willOpen: () => {
+          Swal.showLoading();
+        }
+      });
       try {
         const response=await axios.post(`${API}/users/login`, values);
         if (response.status===200){
@@ -43,10 +51,13 @@ function Login({ isOpen, handleClose }) {
             setCurrentUser(response.data);
             formik.resetForm();
             handleClose();
+            Swal.close();
         } else {
+            Swal.close();
             alert("Ocurrió un error")
         }
       } catch (error) {
+        Swal.close();
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -66,7 +77,7 @@ function Login({ isOpen, handleClose }) {
         <Modal.Body>
           <Form onSubmit={formik.handleSubmit}>
             <Form.Group className="mb-3" controlId="email">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>Correo electrónico</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Ingresar email"
@@ -90,7 +101,7 @@ function Login({ isOpen, handleClose }) {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Contraseña</Form.Label>
               <Form.Control type="password" placeholder="Password"
               name="password"
               {...formik.getFieldProps("password")}
@@ -114,7 +125,7 @@ function Login({ isOpen, handleClose }) {
               >
                 Cerrar
               </Button>
-              <Button type="submit" variant="danger" className="mx-2" >
+              <Button type="submit" variant="danger" className="mx-2">
                 Ingresar
               </Button>
             </div>

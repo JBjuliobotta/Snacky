@@ -23,7 +23,7 @@ const CreateProducts = () => {
       .min(10, "Mín. 10 caracteres")
       .max(200, "Máx. 200 carateres")
       .required("La descripción es requerida"),
-    price: Yup.string().required("El precio es requerido"),
+    price: Yup.number().typeError("El precio debe ser un número").min(1, "El precio debe ser distinto de 0").max(999999, "El precio no puede ser mayor 999999").required("El precio es requerido"),
     stock: Yup.string().required("El stock es requerido"),
     image: Yup.string().required("Una imágen es requerida"),
     category: Yup.string().required("La categoría es requerida"),
