@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
@@ -16,10 +16,10 @@ const Registration = ({ showReg, handleCloseReg }) => {
     name: Yup.string().min(3, "Mín. 3 caracteres").max(30,"Máx. 30 caracteres").required("El nombre de usuario es requerido"),
     email: Yup.string()
       .email("Formato inválido")
-      .min(7)
-      .max(50)
+      .min(7, "Debe tener mínimo 7 caracteres")
+      .max(20, "Debe tener máximo 20 caracteres")
       .required("El email es requerido"),
-    password: Yup.string().min(6).max(50).required("El password es requerido"),
+    password: Yup.string().min(8, "Debe tener mínimo 8 caracteres").max(16, "Debe tener máximo 16 caracteres").required("El password es requerido").matches(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/, "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico"),
     repeatpassword: Yup.string().required("Repetir el password es requerido").oneOf([Yup.ref("password"),null],"Los passwords no coinciden")
   });
 
@@ -36,7 +36,6 @@ const Registration = ({ showReg, handleCloseReg }) => {
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: async (values) => {
-      console.log("VALUES", values);
       Swal.fire({
         title: "Estás seguro de registrarte como usuario?",
         icon: "warning",
@@ -73,7 +72,7 @@ const Registration = ({ showReg, handleCloseReg }) => {
   return (
     <>
       <Modal show={showReg} onHide={handleCloseReg}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton={formik.resetForm}>
           <Modal.Title>Registro</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -84,6 +83,7 @@ const Registration = ({ showReg, handleCloseReg }) => {
                 type="text"
                 placeholder="Ingresar un nombre"
                 name="name"
+                minLength={3} maxLength={30} required
                 {...formik.getFieldProps("name")}
                 className={clsx(
                   "form-control",
@@ -103,11 +103,13 @@ const Registration = ({ showReg, handleCloseReg }) => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="email">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>Correo electrónico</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Ingresar email"
                 name="email"
+                minLength={7}
+                maxLength={20} required
                 {...formik.getFieldProps("email")}
                 className={clsx(
                   "form-control",
@@ -127,11 +129,12 @@ const Registration = ({ showReg, handleCloseReg }) => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Contraseña</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Password"
                 name="password"
+                minLength={8} maxLength={16} required
                 {...formik.getFieldProps("password")}
                 className={clsx(
                   "form-control",
@@ -152,7 +155,7 @@ const Registration = ({ showReg, handleCloseReg }) => {
               )}
             </Form.Group>
             <Form.Group className="mb-3" controlId="repeatpassword">
-              <Form.Label>Repetir Password</Form.Label>
+              <Form.Label>Repetir Contraseña</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Password"
