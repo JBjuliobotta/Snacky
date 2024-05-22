@@ -73,7 +73,7 @@ const Contact = () => {
           <div className="text-center text-light fw-bolder"><h2>Contactanos</h2></div>
           
             <Form onSubmit={formik.handleSubmit}>
-      <Form.Group className="mb-3" controlId="nombre">
+      <Form.Group className="mb-3" controlId="contactonombre">
         <Form.Label className="text-light fw-bolder">Nombre y Apellido </Form.Label>
         <Form.Control type="text" placeholder="Max Power" minLength={4} maxLength={20} name="nombre" {...formik.getFieldProps("nombre")}
         className={clsx(
@@ -91,7 +91,7 @@ const Contact = () => {
             </div>
           )}
       </Form.Group>
-      <Form.Group className="mb-3" controlId="email">
+      <Form.Group className="mb-3" controlId="contactoemail">
         <Form.Label className="text-light fw-bolder">Email </Form.Label> 
         <Form.Control type="email" placeholder="email@ejemplo.com" minLength={15} maxLength={40} name="email" {...formik.getFieldProps("email")} 
         className={clsx(

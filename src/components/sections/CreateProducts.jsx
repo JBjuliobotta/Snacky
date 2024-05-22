@@ -24,7 +24,7 @@ const CreateProducts = () => {
       .max(200, "Máx. 200 carateres")
       .required("La descripción es requerida"),
     price: Yup.number().typeError("El precio debe ser un número").min(1, "El precio debe ser distinto de 0").max(999999, "El precio no puede ser mayor 999999").required("El precio es requerido"),
-    stock: Yup.string().required("El stock es requerido"),
+    stock: Yup.number().typeError("El stock debe ser un número").required("El stock es requerido"),
     image: Yup.string().required("Una imágen es requerida"),
     category: Yup.string().required("La categoría es requerida"),
   });
@@ -44,7 +44,6 @@ const CreateProducts = () => {
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit:  (values) => {
-      console.log("values de formik-->", values);
       Swal.fire({
         title: "Estás seguro de guardar el producto?",
         icon: "warning",
@@ -63,6 +62,7 @@ const CreateProducts = () => {
                 text: "Se creó un nuevo producto",
                 icon: "success"
               });
+              navigate('/administration');
             }
           } catch (error) {
             console.log("ERROR--", error);
@@ -90,6 +90,7 @@ const CreateProducts = () => {
               placeholder="Ingrese un título del producto"
               minLength={4}
               maxLength={200}
+              required
               name="title"
               {...formik.getFieldProps("title")}
               className={clsx("form-control",{
@@ -112,6 +113,9 @@ const CreateProducts = () => {
               as="textarea"
               rows={3}
               name="description"
+              minLength={10}
+              maxLength={200}
+              required
               {...formik.getFieldProps("description")}
               className={clsx("form-control",{
                 'is-invalid': formik.touched.description && formik.errors.description
@@ -131,6 +135,9 @@ const CreateProducts = () => {
               type="text"
               placeholder="Ingrese el precio del producto"
               name="price"
+              minLength={1}
+              maxLength={9}
+              required
               {...formik.getFieldProps("price")}
               className={clsx("form-control",{
                 'is-invalid': formik.touched.price && formik.errors.price
@@ -150,6 +157,9 @@ const CreateProducts = () => {
               type="text"
               placeholder="Ingrese el stock del producto"
               name="stock"
+              minLength={1}
+              maxLength={9}
+              required
               {...formik.getFieldProps("stock")}
               className={clsx("form-control",{
                 'is-invalid': formik.touched.stock && formik.errors.stock
@@ -169,6 +179,7 @@ const CreateProducts = () => {
               type="text"
               placeholder="Coloque una imágen para el producto"
               name="image"
+              required
               {...formik.getFieldProps("image")}
               className={clsx("form-control",{
                 'is-invalid': formik.touched.image && formik.errors.image
@@ -187,6 +198,7 @@ const CreateProducts = () => {
             <Form.Select
             aria-label="category"
             name="category"
+            required
               {...formik.getFieldProps("category")}
               className={clsx("form-control",{
                 'is-invalid': formik.touched.category && formik.errors.category

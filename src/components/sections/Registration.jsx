@@ -16,8 +16,8 @@ const Registration = ({ showReg, handleCloseReg }) => {
     name: Yup.string().min(3, "Mín. 3 caracteres").max(30,"Máx. 30 caracteres").required("El nombre de usuario es requerido"),
     email: Yup.string()
       .email("Formato inválido")
-      .min(7)
-      .max(50)
+      .min(7, "Debe tener mínimo 7 caracteres")
+      .max(20, "Debe tener máximo 20 caracteres")
       .required("El email es requerido"),
     password: Yup.string().min(8, "Debe tener mínimo 8 caracteres").max(16, "Debe tener máximo 16 caracteres").required("El password es requerido").matches(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/, "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico"),
     repeatpassword: Yup.string().required("Repetir el password es requerido").oneOf([Yup.ref("password"),null],"Los passwords no coinciden")
@@ -83,6 +83,7 @@ const Registration = ({ showReg, handleCloseReg }) => {
                 type="text"
                 placeholder="Ingresar un nombre"
                 name="name"
+                minLength={3} maxLength={30} required
                 {...formik.getFieldProps("name")}
                 className={clsx(
                   "form-control",
@@ -107,6 +108,8 @@ const Registration = ({ showReg, handleCloseReg }) => {
                 type="email"
                 placeholder="Ingresar email"
                 name="email"
+                minLength={7}
+                maxLength={20} required
                 {...formik.getFieldProps("email")}
                 className={clsx(
                   "form-control",
@@ -131,6 +134,7 @@ const Registration = ({ showReg, handleCloseReg }) => {
                 type="password"
                 placeholder="Password"
                 name="password"
+                minLength={8} maxLength={16} required
                 {...formik.getFieldProps("password")}
                 className={clsx(
                   "form-control",

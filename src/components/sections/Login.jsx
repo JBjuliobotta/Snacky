@@ -18,8 +18,8 @@ function Login({ isOpen, handleClose }) {
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
       .email("Formato inválido")
-      .min(7)
-      .max(50)
+      .min(7, "Debe tener mínimo 7 caracteres")
+      .max(20, "Debe tener máximo 20 caracteres")
       .required("El email es requerido"),
     password: Yup.string().min(8, "Debe tener mínimo 8 caracteres").max(16, "Debe tener máximo 16 caracteres").required("El password es requerido").matches(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/, "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico"),
   });
@@ -82,6 +82,9 @@ function Login({ isOpen, handleClose }) {
                 type="email"
                 placeholder="Ingresar email"
                 name="email"
+                minLength={7}
+                maxLength={20}
+                required
                 {...formik.getFieldProps("email")}
                 className={clsx(
                   "form-control",
@@ -104,6 +107,7 @@ function Login({ isOpen, handleClose }) {
               <Form.Label>Contraseña</Form.Label>
               <Form.Control type="password" placeholder="Password"
               name="password"
+              minLength={8} maxLength={16} required
               {...formik.getFieldProps("password")}
               className={clsx("form-control",{
                 'is-invalid': formik.touched.password && formik.errors.password
