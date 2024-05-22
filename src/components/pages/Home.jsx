@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../context/UserContext";
 import Carousel from "react-bootstrap/Carousel";
-import grupo_jovenes from "C:/Users/julio/Documents/Proyecto Final Rolling/Snacky/src/assets/grupo_jovenes.png";
+import grupo_jovenes from "../../assets/Grupo_Jovenes.png";
 import snackz from "../../assets/tablaSnacks.png";
 import saladixPu from "../../assets/saladixP.png";
 import rollingcodepublicidad from "../../assets/rollingcodepublicidad.png"
