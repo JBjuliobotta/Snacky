@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext,  useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,12 +7,13 @@ import { Button } from "react-bootstrap";
 import Login from "./sections/Login";
 import UserContext from "./context/UserContext";
 import Registration from "./sections/Registration";
-
+import SnackyLogoNav from "/src/assets/snacky-icono.png"
 
 const NavBar = () => {
   const { currentUser, setCurrentUser, RemoveAuth } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
   const [showReg, setShowReg] = useState(false);
+
   const handleShow = () => {
     setIsOpen(true);
   };
@@ -37,17 +38,17 @@ const NavBar = () => {
       <Login isOpen={isOpen} handleClose={handleClose} />
       <Navbar
         expand="lg"
-        className="bg-body-tertiary"
+        className="bg-body-tertiary fw-bold"
         data-bs-theme="light"
         sticky="top"
       >
         <Container>
           <NavLink to="/">
             <img
-              src="../src/assets/snacky-icono.png"
+              src={SnackyLogoNav}
               width="50"
               height="50"
-              className="d-inline-block align-top"
+              className="d-inline-block align-top me-4"
               alt="React Bootstrap logo"
             />
           </NavLink>
@@ -57,7 +58,15 @@ const NavBar = () => {
               <NavLink to="/" className={"nav-link"}>
                 Inicio
               </NavLink>
-              <NavLink to="/*" className={"nav-link"}>
+              <NavLink
+                onClick={() => {
+                  const element = document.getElementById("destacados");
+                  element?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+                className={"nav-link text-muted"}
+              >
                 Destacados
               </NavLink>
               <NavLink to="/contact" className={"nav-link"}>
@@ -80,12 +89,20 @@ const NavBar = () => {
                 </Button>
               )}
               {currentUser === undefined && (
-                <Button variant="danger" className="mx-2 my-2 " onClick={handleShow}>
+                <Button
+                  variant="danger"
+                  className="mx-2 my-2 "
+                  onClick={handleShow}
+                >
                   Ingresar
                 </Button>
               )}
               {currentUser !== undefined && (
-                <Button variant="warning" className="mx-2 my-2 " onClick={Logout}>
+                <Button
+                  variant="warning"
+                  className="mx-2 my-2 "
+                  onClick={Logout}
+                >
                   Salir
                 </Button>
               )}

@@ -43,7 +43,7 @@ const Product = ({ producto, getProducts }) => {
         <td>{producto.description}</td>
         <td>{producto.price}</td>
         <td>{producto.stock}</td>
-        <td>{producto.image}</td>
+        <td><img src={producto.image} style={{ width: "2rem", height:"2rem" }}/></td>
         <td>{producto.category}</td>
         <td>{producto.createdAt}</td>
         <td>{producto.updatedAt}</td>

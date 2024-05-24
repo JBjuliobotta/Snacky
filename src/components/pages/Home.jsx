@@ -1,18 +1,14 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, forwardRef } from "react";
 import UserContext from "../context/UserContext";
 import Carousel from "react-bootstrap/Carousel";
-import grupo_jovenes from "../../assets/grupo_jovenes.png";
+import grupo_jovenes from "../../assets/Grupo_Jovenes.png";
 import snackz from "../../assets/tablaSnacks.png";
 import saladixPu from "../../assets/saladixP.png";
-import rollingcodepublicidad from "../../assets/rollingcodepublicidad.png";
-//import "../css/home.css";
-//import Button from "react-bootstrap/Button";
-//import Card from "react-bootstrap/Card";
+import rollingcodepublicidad from "../../assets/rollingcodepublicidad.png"
 import CardProduct from "../sections/CardProduct";
-import axios from "axios";
 import { Container, Row, Col, Form } from "react-bootstrap";
 
-const Home = () => {
+const Home = ({myRef}) => {
   const { currentUser } = useContext(UserContext);
   const [productos, setProductos] = useState([]);
   const [productFilter, setproductFilter] = useState("");
@@ -38,12 +34,11 @@ const Home = () => {
 
   useEffect(() => {
     getProducts();
+    currentUser
   }, [productFilter, searchTitle]);
 
-  console.log("filtro", productFilter);
 
 
-  console.log("currentuser", currentUser);
 
   return (
     <>
@@ -71,7 +66,7 @@ const Home = () => {
 
 
       <Container className="text-center">
-        <h1 className="text-light fw-bolder my-3">Destacados</h1>
+        <h1 className="text-light fw-bolder my-3" id="destacados">Destacados</h1>
         <Row>
           <Col xs={12} md={6}>
             <Form>
@@ -107,7 +102,7 @@ const Home = () => {
             </Form>
           </Col>
         </Row>
-        <Row className="justify-content-evenly">
+        <Row className="justify-content-evenly me-3">
           {productos.map((element) => {
             return <CardProduct producto={element} key={element._id} />;
           })}

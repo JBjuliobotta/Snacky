@@ -31,7 +31,6 @@ const ProductsList = () => {
     getProducts();
   }, [productFilter]);
 
-  console.log("filtro", productFilter);
 
   return (
     <>
@@ -79,19 +78,19 @@ const ProductsList = () => {
         <Table striped bordered hover variant="light" responsive>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Título</th>
-              <th>Descripción</th>
-              <th>Precio</th>
-              <th>Stock</th>
-              <th>Imágen</th>
-              <th>Categoría</th>
-              <th>Creado</th>
-              <th>Actualizado</th>
-              <th>Acciones</th>
+              <th scope="col">ID</th>
+              <th scope="col">Título</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Stock</th>
+              <th scope="col">Imágen</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Creado</th>
+              <th scope="col">Actualizado</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-truncate">
             {productos.map((element) => {
               return (
                 <Product

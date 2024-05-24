@@ -38,8 +38,8 @@ const EditProduct = () => {
       .min(4, "Mín. 4 caracteres")
       .max(200, "Máx. 200 carateres")
       .required("La descripción es requerida"),
-    price: Yup.string().required("El precio es requerido"),
-    stock: Yup.string().required("El stock es requerido"),
+    price: Yup.number().typeError("El precio debe ser un número").min(1, "El precio debe ser distinto de 0").max(999999, "El precio no puede ser mayor 999999").required("El precio es requerido"),
+    stock: Yup.number().typeError("El stock debe ser un número").required("El stock es requerido"),
     image: Yup.string().required("Una imágen es requerida"),
     category: Yup.string().required("La categoría es requerida"),
   });
@@ -59,7 +59,6 @@ const EditProduct = () => {
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: (values) => {
-      console.log("values de formik-->", values);
       Swal.fire({
         title: "Estás seguro de editar el producto?",
         icon: "warning",
@@ -124,6 +123,7 @@ const EditProduct = () => {
               placeholder="Ingrese un título del producto"
               minLength={4}
               maxLength={200}
+              required
               name="title"
               {...formik.getFieldProps("title")}
               className={clsx(
@@ -149,6 +149,9 @@ const EditProduct = () => {
               placeholder="Ingrese una descripción del producto"
               as="textarea"
               rows={3}
+              minLength={10}
+              maxLength={200}
+              required
               name="description"
               {...formik.getFieldProps("description")}
               className={clsx(
@@ -175,6 +178,9 @@ const EditProduct = () => {
               type="text"
               placeholder="Ingrese el precio del producto"
               name="price"
+              minLength={1}
+              maxLength={9}
+              required
               {...formik.getFieldProps("price")}
               className={clsx(
                 "form-control",
@@ -198,6 +204,9 @@ const EditProduct = () => {
               type="text"
               placeholder="Ingrese el stock del producto"
               name="stock"
+              required
+              minLength={10}
+              maxLength={200}
               {...formik.getFieldProps("stock")}
               className={clsx(
                 "form-control",
@@ -221,6 +230,7 @@ const EditProduct = () => {
               type="text"
               placeholder="Coloque una imágen para el producto"
               name="image"
+              required
               {...formik.getFieldProps("image")}
               className={clsx(
                 "form-control",
@@ -243,6 +253,7 @@ const EditProduct = () => {
             <Form.Select
               aria-label="category"
               name="category"
+              required
               {...formik.getFieldProps("category")}
               className={clsx(
                 "form-control",
