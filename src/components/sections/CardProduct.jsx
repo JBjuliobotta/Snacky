@@ -1,13 +1,12 @@
 import React from "react";
 import { Card, Button, Col } from "react-bootstrap";
-//import "../css/home.css";
 import { useNavigate } from "react-router-dom";
 
 const CardProduct = ({ producto }) => {
   const navigate = useNavigate();
   return (
     <>
-      <Col sm={6} md={4} lg={3} xl={2} className="mx-3 my-2 mx-md-1 my-md-2">
+      <Col  className="d-flex flex-row my-2 justify-content-center">
         <div className="cards-container  align-items-center">
           <Card
             className="align-items-center"
