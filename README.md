@@ -5,6 +5,7 @@ Aplicación web creada con el stack **"MERN"**
 ## Enlace a la versión de producción
 
 - [Snaky | Netlify](https://snackygrupo1comision80i.netlify.app/)
+- Para ingresar usuario: admin@gmail.com / contraseña: Admin!1234
 
 ---
 
