@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, forwardRef } from "react";
 import UserContext from "../context/UserContext";
 import Carousel from "react-bootstrap/Carousel";
 import grupo_jovenes from "C:/Users/julio/Documents/Proyecto Final Rolling/Snacky/src/assets/grupo_jovenes.png";
@@ -8,7 +8,7 @@ import rollingcodepublicidad from "../../assets/rollingcodepublicidad.png"
 import CardProduct from "../sections/CardProduct";
 import { Container, Row, Col, Form } from "react-bootstrap";
 
-const Home = () => {
+const Home = ({myRef}) => {
   const { currentUser } = useContext(UserContext);
   const [productos, setProductos] = useState([]);
   const [productFilter, setproductFilter] = useState("");
@@ -66,7 +66,7 @@ const Home = () => {
 
 
       <Container className="text-center">
-        <h1 className="text-light fw-bolder my-3">Destacados</h1>
+        <h1 className="text-light fw-bolder my-3" id="destacados">Destacados</h1>
         <Row>
           <Col xs={12} md={6}>
             <Form>
