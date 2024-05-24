@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -8,11 +8,11 @@ import Login from "./sections/Login";
 import UserContext from "./context/UserContext";
 import Registration from "./sections/Registration";
 
-
 const NavBar = () => {
   const { currentUser, setCurrentUser, RemoveAuth } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
   const [showReg, setShowReg] = useState(false);
+
   const handleShow = () => {
     setIsOpen(true);
   };
@@ -57,7 +57,15 @@ const NavBar = () => {
               <NavLink to="/" className={"nav-link"}>
                 Inicio
               </NavLink>
-              <NavLink to="/*" className={"nav-link"}>
+              <NavLink
+                onClick={() => {
+                  const element = document.getElementById("destacados");
+                  element?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+                /*to="/*"*/ className={"nav-link text-muted"}
+              >
                 Destacados
               </NavLink>
               <NavLink to="/contact" className={"nav-link"}>
@@ -80,12 +88,20 @@ const NavBar = () => {
                 </Button>
               )}
               {currentUser === undefined && (
-                <Button variant="danger" className="mx-2 my-2 " onClick={handleShow}>
+                <Button
+                  variant="danger"
+                  className="mx-2 my-2 "
+                  onClick={handleShow}
+                >
                   Ingresar
                 </Button>
               )}
               {currentUser !== undefined && (
-                <Button variant="warning" className="mx-2 my-2 " onClick={Logout}>
+                <Button
+                  variant="warning"
+                  className="mx-2 my-2 "
+                  onClick={Logout}
+                >
                   Salir
                 </Button>
               )}
