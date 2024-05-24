@@ -1,5 +1,11 @@
 import React from 'react';
-import '../css/aboutus.css'
+import Esteban from '../../assets/Esteban Centurión.jpeg'
+import Julio from '../../assets/Julio.jpeg'
+import Axel from '../../assets/Axel Yoel Ontiveros.jpg'
+import Facundo from '../../assets/Facundo Moyano.jpeg'
+import Fernando from '../../assets/Fernando Abregu.jpeg'
+import Maxi from '../../assets/Jose Maximiliano Leal.jpeg'
+import '../css/aboutus.css';
 const Aboutus = () => {
     return (
         <section>
@@ -14,7 +20,7 @@ const Aboutus = () => {
             <div className="card">
 
                 <div className="imbBx">
-                    <img src="src/assets/Esteban Centurión.png" alt=""/>
+                    <img src={Esteban} alt=""/>
                 </div>
 
                 <div className="content">
@@ -40,7 +46,7 @@ const Aboutus = () => {
             <div className="card">
 
 <div className="imbBx">
-    <img src="src/assets/Julio.png" alt=""/>
+    <img src={Julio} alt=""/>
 </div>
 
 <div className="content">
@@ -66,7 +72,7 @@ const Aboutus = () => {
             <div className="card">
 
                 <div className="imbBx">
-                    <img src="src/assets/Axel Yoel Ontiveros.png" alt=""/>
+                    <img  src={Axel} alt=""/>
                 </div>
 
                 <div className="content">
@@ -92,7 +98,7 @@ const Aboutus = () => {
             <div className="card">
 
                 <div className="imbBx">
-                    <img src="src/assets/Facundo Moyano.png" alt=""/>
+                    <img src={Facundo} alt=""/>
                 </div>
 
                 <div className="content">
@@ -117,7 +123,7 @@ const Aboutus = () => {
             <div className="card">
 
         <div className="imbBx">
-            <img src="src/assets/Fernando Abregu.png" alt=""/>
+            <img  src={Fernando} alt=""/>
         </div>
 
         <div className="content">
@@ -142,7 +148,7 @@ const Aboutus = () => {
 <div className="card">
 
 <div className="imbBx">
-    <img src="src/assets/Jose Maximiliano Leal.png" alt=""/>
+    <img src={Maxi} alt=""/>
 </div>
 
 <div className="content">
