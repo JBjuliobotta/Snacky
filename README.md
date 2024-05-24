@@ -1,8 +1,43 @@
-# React + Vite
+# Bienvenidos al repositorio FrontEnd de Snacky
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web creada con el stack **"MERN"**
 
-Currently, two official plugins are available:
+## Enlace a la versión de producción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Snaky | Netlify](https://snackygrupo1comision80i.netlify.app/)
+
+---
+
+### Pasos para ejecutar la aplicación de forma local.
+
+Requisitos: Node.js y GIT instalado en su ordenador
+
+En su terminal de comandos:
+
+1. Clonar el repositorio
+   `git clone https://github.com/JBjuliobotta/Snacky.git`
+2. Accede al directorio en donde se encuentra el proyecto
+   `cd <nombre del directorio>`
+3. Instalar dependencias
+   `npm install`
+4. Iniciar aplicación
+   `npm run dev`
+
+Con la terminal abierta, puede pulsar la tecla "o" en su teclado, y el navegador que tiene por predeterminado debería abrirse correctamente con la aplicación web.
+
+### Repositorio Backend
+
+- [Backend Snachy](https://github.com/JBjuliobotta/backend-snacky)
+
+---
+
+## Integrantes
+
+Proyecto desarrollado por el Grupo 1 - Comisión 80i | Rolling Code School
+
+- [José Maximiliano Leal]
+- [Esteban Centurión]
+- [Axel Yoel Ontevieros]
+- [Facundo Moyano]
+- [Rubén Fernando Abregú]
+- [Julio Rafael Botta]

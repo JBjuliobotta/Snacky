@@ -1,11 +1,12 @@
 import React from 'react';
-import '../css/aboutus.css'
 import Esteban from '../../assets/Esteban Centurión.jpeg'
 import Julio from '../../assets/Julio.jpeg'
 import Axel from '../../assets/Axel Yoel Ontiveros.jpg'
 import Facundo from '../../assets/Facundo Moyano.jpeg'
 import Fernando from '../../assets/Fernando Abregu.jpeg'
 import Maxi from '../../assets/Jose Maximiliano Leal.jpeg'
+import '../css/aboutus.css';
+
 const Aboutus = () => {
     return (
         <section>
@@ -46,7 +47,9 @@ const Aboutus = () => {
             <div className="card">
 
 <div className="imbBx">
-    <img src={Julio}alt=""/>
+
+    <img src={Julio} alt=""/>
+      
 </div>
 
 <div className="content">
@@ -72,7 +75,9 @@ const Aboutus = () => {
             <div className="card">
 
                 <div className="imbBx">
-                    <img src={Axel} alt=""/>
+
+                    <img  src={Axel} alt=""/>
+
                 </div>
 
                 <div className="content">
@@ -123,7 +128,9 @@ const Aboutus = () => {
             <div className="card">
 
         <div className="imbBx">
-            <img src={Fernando} alt=""/>
+
+            <img  src={Fernando} alt=""/>
+
         </div>
 
         <div className="content">
