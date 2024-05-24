@@ -31,10 +31,14 @@ const ProductDetail = () => {
             <img className="product-i" src={producto.image} alt="papas" />
             <div className="product-d">
               <h1>{producto.title}</h1>
-              <p>{producto.price}</p>
+              <p>${producto.price}</p>
               <p>{producto.description}</p>
             </div>
-            <Button className="btn-danger">
+            <Button variant="danger" size="lg"
+            className="w-50"
+            onClick={() => {
+              navigate("/*");
+            }}>
               <i class="bi bi-cart"></i>
             </Button>
           </div>
