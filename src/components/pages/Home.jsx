@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, forwardRef } from "react";
+import React, { useContext, useState, useEffect} from "react";
 import UserContext from "../context/UserContext";
 import Carousel from "react-bootstrap/Carousel";
 import grupo_jovenes from "../../assets/Grupo_Jovenes.png";
@@ -8,7 +8,7 @@ import rollingcodepublicidad from "../../assets/rollingcodepublicidad.png"
 import CardProduct from "../sections/CardProduct";
 import { Container, Row, Col, Form } from "react-bootstrap";
 
-const Home = ({myRef}) => {
+const Home = () => {
   const { currentUser } = useContext(UserContext);
   const [productos, setProductos] = useState([]);
   const [productFilter, setproductFilter] = useState("");
@@ -95,7 +95,7 @@ const Home = ({myRef}) => {
             }}>
               <Form.Group className="mb-3 text-light" controlId="search">
                 <Form.Label>Búsqueda por Título</Form.Label>
-                <Form.Control type="text" placeholder="Búsqueda" name="title" onChange={(e)=>{
+                <Form.Control type="text" placeholder="Búsqueda" name="title" maxLength={200} onChange={(e)=>{
                   SetSearchTitle(e.currentTarget.value);
                 }} />
               </Form.Group>
