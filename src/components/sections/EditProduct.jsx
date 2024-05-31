@@ -22,7 +22,6 @@ const EditProduct = () => {
     }
   }
   useEffect(()=>{
-    console.log("id a editar", id);
     getProduct();
   }, []);
   
@@ -205,7 +204,7 @@ const EditProduct = () => {
               placeholder="Ingrese el stock del producto"
               name="stock"
               required
-              minLength={10}
+              minLength={1}
               maxLength={200}
               {...formik.getFieldProps("stock")}
               className={clsx(

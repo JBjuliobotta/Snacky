@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import clsx from "clsx";
 import Swal from 'sweetalert2' 
-import { json } from "react-router-dom";
 
 
 const Contact = () => {
@@ -14,9 +13,10 @@ const Contact = () => {
     nombre: Yup.string()
       .min(4, "min 4 caract.")
       .max(20, "max 20 caract.")
-      .required("Nombre y apellido son requeridos"),
+      .required("Nombre y apellido son requeridos").matches(/^[ÁÉÍÓÚA-Z][a-záéíóú]+(\s+[ÁÉÍÓÚA-Z]?[a-záéíóú]+)*$/, "El campo sólo acepta letras"),
     email: Yup.string()
-      .min(15, "min.15 caract.")
+      .email("Formato inválido")
+      .min(6, "min.15 caract.")
       .max(40, "max. 40 caract.")
       .required("Direccion de correo requerida"),
    opcionlugar: Yup.string().required("Tu ubicacion es requerida"),
@@ -37,7 +37,6 @@ const Contact = () => {
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: (values) => {
-      console.log("Values de Formik-->", values);
       Swal.fire({
         title: "¿Enviar tus comentario?",
         
@@ -46,13 +45,9 @@ const Contact = () => {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Enviar"
-      }) .then(async (result) => {
+      }) .then( (result) => {
         if (result.isConfirmed) {
           try {
-            const response=await fetch(`${API}/comentarios`,{method:"POST", 
-          headers:{"content-type":"aplication/json",},
-        body: JSON.stringify (values)});
-            if (response.status === 201) {
               formik.resetForm();
               Swal.fire({
                 title: "¡Exito!",
@@ -60,7 +55,7 @@ const Contact = () => {
                 icon: "success",
               });
              
-            }
+            
           } catch (error) {
             console.log("ERROR-->", error);
           }         
@@ -93,7 +88,7 @@ const Contact = () => {
       </Form.Group>
       <Form.Group className="mb-3" controlId="contactoemail">
         <Form.Label className="text-light fw-bolder">Email </Form.Label> 
-        <Form.Control type="email" placeholder="email@ejemplo.com" minLength={15} maxLength={40} name="email" {...formik.getFieldProps("email")} 
+        <Form.Control type="email" placeholder="email@ejemplo.com" minLength={6} maxLength={40} name="email" {...formik.getFieldProps("email")} 
         className={clsx(
           "form-control",
           {

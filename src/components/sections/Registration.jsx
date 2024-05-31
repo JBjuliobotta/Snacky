@@ -13,7 +13,7 @@ const Registration = ({ showReg, handleCloseReg }) => {
   const API = import.meta.env.VITE_API;
 
   const RegistrationSchema = Yup.object().shape({
-    name: Yup.string().min(3, "Mín. 3 caracteres").max(30,"Máx. 30 caracteres").required("El nombre de usuario es requerido"),
+    name: Yup.string().min(3, "Mín. 3 caracteres").max(30,"Máx. 30 caracteres").required("El nombre de usuario es requerido").matches(/^[ÁÉÍÓÚA-Z][a-záéíóú]+(\s+[ÁÉÍÓÚA-Z]?[a-záéíóú]+)*$/, "El campo sólo acepta letras"),
     email: Yup.string()
       .email("Formato inválido")
       .min(7, "Debe tener mínimo 7 caracteres")

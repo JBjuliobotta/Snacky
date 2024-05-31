@@ -16,7 +16,7 @@ const CardProduct = ({ producto }) => {
               className="object-fit-cover mt-3"
               style={{ maxWidth: "8rem", maxHeight: "12rem" }}
               variant="top"
-              src={producto.image}
+              src={producto.image} alt={producto.title}
             />
             <Card.Body>
               <Card.Title className="my-0">{producto.title}</Card.Title>

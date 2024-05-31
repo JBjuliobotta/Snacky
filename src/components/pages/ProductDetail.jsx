@@ -1,5 +1,4 @@
 import "../css/details.css";
-//import snack from "../../assets/snack_image.png";
 import { Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -28,7 +27,7 @@ const ProductDetail = () => {
       <section>
         <div className="container-b">
           <div className="white-b">
-            <img className="product-i" src={producto.image} alt="papas" />
+            <img className="product-i" src={producto.image} alt={producto.title} />
             <div className="product-d">
               <h1>{producto.title}</h1>
               <p>${producto.price}</p>
@@ -39,7 +38,7 @@ const ProductDetail = () => {
             onClick={() => {
               navigate("/*");
             }}>
-              <i class="bi bi-cart"></i>
+              <i className="bi bi-cart"></i>
             </Button>
           </div>
         </div>
